@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 
 const NavBar = () => {
-    const user = false
+    const {user, logOut} =useContext(AuthContext)
+
+const logOutHandelar =()=>{
+    logOut()
+    .then(()=>{})
+    .catch(error=>{
+        console.log(error.message)
+    })
+}
 
 
     const NavItems = <>
@@ -38,17 +47,28 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ?
-                            <>
-                                <li><Link>Log Out</Link></li>
-                            </>
+                        user ? <div className='flex md:gap-5'>
+                            <div className='md:flex gap-2 mt-2  hover: '>
+                                <Link onClick={logOutHandelar} className='md:text-xl font-bold font-italic' to='/login'>Log Out</Link>
+
+                            </div>
+                            <div className="tooltip  tooltip-secondary tooltip-bottom " data-tip={user.displayName}>
+                                <label tabIndex={0} className=" btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user?.photoURL} alt="" />
+                                    </div>
+                                </label>
+
+                            </div>
+
+                        </div>
+
                             :
-                            <>
-                                <Link>Log In</Link>
-                                <div className="w-10 rounded-full">
-                                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                </div>
-                            </>
+                            <div className='md:flex gap-2 font-italic hover:text-orange-400 '>
+                                {/* <FaRegUserCircle className='text-2xl mt-1' /> */}
+                                <Link className='text-xl font-bold' to='/login'>Log In</Link>
+
+                            </div>
                     }
                 </div>
             </div>
