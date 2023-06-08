@@ -6,6 +6,7 @@ import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
 
 
 
+
 const Registration = () => {
 
 
@@ -37,11 +38,30 @@ const Registration = () => {
         createUser(email, password)
             .then(result => {
 
-                form.reset()
-                navigate('/')
-                console.log(result.user)
+
+
                 changeName(result.user, name, photo)
                     .then(() => {
+
+                        const userData = { name, email, photo }
+
+                        fetch(`http://localhost:5000/users`, {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(userData)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    form.reset()
+                                    navigate('/')
+
+                                }
+
+                            })
+
                         setReload(new Date().getTime())
                     })
                     .catch(error => {
@@ -61,7 +81,22 @@ const Registration = () => {
     const googleHandaler = () => {
         googlelogIn()
             .then(result => {
-                console.log(result.user)
+     
+                const userData = { name: result.user.displayName, email: result.user.email , photo:result.user.photoURL }
+
+                fetch(`http://localhost:5000/users`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                    .then(res => res.json())
+                    .then(() => 
+                  
+                        navigate('/')
+
+                    )
             })
     }
 
@@ -70,7 +105,7 @@ const Registration = () => {
 
     return (
         <div>
-          
+
             <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8"
                 style={{ backgroundImage: `url("https://img.freepik.com/premium-vector/illustration-astronaut-sitting-relaxed_177315-470.jpg?size=626&ext=jpg&ga=GA1.1.1318835724.1670345660&semt=ais")` }}
             >

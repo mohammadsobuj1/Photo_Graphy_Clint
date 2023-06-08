@@ -1,4 +1,4 @@
-import React, {  useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 
@@ -7,7 +7,7 @@ import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 
 
 const Login = () => {
-    const {logIn, googlelogIn}= useContext(AuthContext)
+    const { logIn, googlelogIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const [error, setError] = useState("")
@@ -37,7 +37,20 @@ const Login = () => {
     const googleHandaler = () => {
         googlelogIn()
             .then(result => {
-                navigate(forms)
+                const userData = {  name: result.user.displayName, email: result.user.email, photo: result.user.photoURL }
+
+                fetch(`http://localhost:5000/users`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                    .then(res => res.json())
+                    .then(data =>
+                        navigate(forms)
+                    )
+
             })
     }
 
@@ -45,7 +58,7 @@ const Login = () => {
 
     return (
         <div className=''>
-      
+
             <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 "
                 style={{ backgroundImage: `url("https://img.freepik.com/premium-vector/superhero-silhouette_23-2147510892.jpg?size=626&ext=jpg&ga=GA1.1.1318835724.1670345660&semt=ais")` }}
             >
