@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import useAdmin from '../Hooks/useAdmin/useAdmin';
+import useInstractor from '../Hooks/useInstractor/useInstractor';
 
 const Dashbord = () => {
+    const [isAdmin] = useAdmin()
+    const [isInstractor] = useInstractor()
+    // const isInstractor = true;
 
-    const role = 'instractor';
 
     return (
         <div className="drawer lg:drawer-open">
@@ -21,17 +25,21 @@ const Dashbord = () => {
 
 
                     {
-                        role === 'admin' ? <>
+                        isAdmin ? <>
                             <li><Link to='/dashbord/allusers'>ALL USERS</Link></li>
-                            <li><Link to='/dashbord/addclass'>Add Class</Link></li>
-                        </> 
-                        :"" || role == 'instractor' ? <>
+                            <li><Link to='/dashbord/manageclass'>Manage Class</Link></li>
+                        </>
+                            : "" || isInstractor ? <>
                             <li><Link to='/dashbord/enroll'>Enroll Student</Link></li>
                             <li><Link to='/dashbord/feedback'>FeedBack</Link></li>
                             <li><Link to='/dashbord/addclass'>Add Class</Link></li>
                             <li><Link to='/dashbord/myclass'>My Class</Link></li>
+                          
+                        </>:<><li><Link to='/dashbord/myclass'>My Class</Link></li>
                             <li><Link to='/'>Backto Home</Link></li>
-                        </> :<>student</>
+                            <li><Link to='/dashbord/myselactclaess'>My Selacted Class</Link></li>
+                            
+                            </>
                     }
 
                 </ul>

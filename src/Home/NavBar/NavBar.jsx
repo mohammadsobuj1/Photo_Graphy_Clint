@@ -17,7 +17,7 @@ const logOutHandelar =()=>{
     const NavItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>Instructors</Link></li>
-        <li><Link to='/'>Classes</Link></li>
+        <li><Link to='/classes'>Classes</Link></li>
         {
             user ?
                 <li><Link to='/dashbord'>Dashboard </Link></li>

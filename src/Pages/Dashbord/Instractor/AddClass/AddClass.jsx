@@ -3,33 +3,77 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure/useAxiosSecure';
+
+
+
+const image_hostin_token = import.meta.env.VITE_image_token
 
 const AddClass = () => {
+    const [axiosSecure] = useAxiosSecure()
+    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hostin_token}`
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const { user } = useContext(AuthContext)
 
     const onSubmit = data => {
-        const price = parseFloat(data.price)
-        const { classname, instructorname, instructoremail, image, status } = data;
-        const addData = { classname, instructorname, email:instructoremail, image, price, status }
-        console.log(data)
+        const enrolled_student = 0
+        const formData = new FormData();
+        formData.append('image', data.image[0])
 
-        axios.post('http://localhost:5000/class', addData)
-            .then(data => {
-                if (data.data.insertedId) {
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Your class has has been added',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                    reset()
+        fetch(image_hosting_url, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgResponse => {
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url;
+
+                    // const newItem = { name, category, recipe,  }
+                    const { classname, instructorname, price, seats, instructoremail, status } = data;
+                    const addData = { classname, instructorname, seats : parseFloat(seats), email: instructoremail, enrolled_student, image: imgURL, price: parseFloat(price), status }
+
+                    axiosSecure.post('/class', addData)
+                        .then(data => {
+                            console.log('after posting new menu item', data.data)
+                            if (data.data.insertedId) {
+                                reset();
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Item added successfully',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            }
+                        })
                 }
-
             })
+
+
+
+
+
+
+
+
+
+        // axios.post('http://localhost:5000/class', addData)
+        //     .then(data => {
+        //         if (data.data.insertedId) {
+        //             Swal.fire({
+        //                 position: 'top-end',
+        //                 icon: 'success',
+        //                 title: 'Your class has has been added',
+        //                 showConfirmButton: false,
+        //                 timer: 1500
+        //             })
+        //             reset()
+        //         }
+
+        //     })
 
 
     };
@@ -62,12 +106,16 @@ const AddClass = () => {
 
                         <div className="">
                             <p className=' font-semibold my-2 '>Class Image :</p>
-                            <input  {...register("image", { required: true, })} type="text" className="file-input file-input-bordered w-full max-w-xs" />
+                            <input  {...register("image", { required: true, })} type="file" className="file-input file-input-bordered w-full max-w-xs" />
                         </div>
 
                         <div className="">
                             <p className=' font-semibold my-2 '>Price :</p>
                             <input {...register("price", { required: true, maxLength: 20 })} type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                        </div>
+                        <div className="">
+                            <p className=' font-semibold my-2 '>Available Seats :</p>
+                            <input {...register("seats", { required: true, maxLength: 20 })} type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         </div>
                         <div className="">
                             <p className=' font-semibold my-2 '>Status :</p>

@@ -13,6 +13,12 @@ import EnrolledStudent from '../Pages/Dashbord/Instractor/EnrolledStudent/Enroll
 import FeedBack from '../Pages/Dashbord/Instractor/FeedBack/FeedBack';
 import Allusers from '../Pages/Dashbord/Allusers/Allusers';
 import MyClass from '../Pages/Dashbord/Instractor/Myclass/MyClass';
+import AdminRoute from './AdminRoute';
+import InstractorRoute from './InstractorRoute';
+import PrivateRoute from './PrivetRoute.jsx/PrivateRoute';
+import ManageClasses from '../Pages/Dashbord/ManageClasses/ManageClasses';
+import Classes from '../Pages/Classes/Classes';
+import MySelectedClasses from '../Pages/Dashbord/Student/MySelectedClasses/MySelectedClasses';
 
 
 const router = createBrowserRouter([
@@ -33,19 +39,23 @@ const router = createBrowserRouter([
                 path: 'registration',
                 element: <Registration />
             },
-          
+            {
+                path: '/classes',
+                element: <Classes />
+            },
+
 
         ]
     },
 
     {
         path: 'dashbord',
-        element: <Dashbord />,
+        element: <PrivateRoute> <Dashbord /></PrivateRoute>,
         children: [
-          
+
             {
                 path: '/dashbord/enroll',
-                element: <EnrolledStudent />
+                element: <InstractorRoute> <EnrolledStudent /></InstractorRoute>
             },
             {
                 path: '/dashbord/feedback',
@@ -53,15 +63,23 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashbord/addclass',
-                element: <AddClass />
+                element: <InstractorRoute><AddClass /></InstractorRoute>
             },
             {
                 path: '/dashbord/allusers',
-                element: <Allusers />
+                element: <AdminRoute><Allusers /></AdminRoute>
             },
             {
                 path: '/dashbord/myclass',
-                element: <MyClass />
+                element: <InstractorRoute><MyClass /></InstractorRoute>
+            },
+            {
+                path: '/dashbord/manageclass',
+                element: <AdminRoute><ManageClasses /></AdminRoute>
+            },
+            {
+                path: '/dashbord/myselactclaess',
+                element:<PrivateRoute> <MySelectedClasses /></PrivateRoute>
             },
         ]
     }

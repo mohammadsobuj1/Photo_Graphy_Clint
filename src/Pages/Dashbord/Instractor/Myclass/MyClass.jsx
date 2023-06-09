@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import { AuthContext } from '../../../../Components/AuthProvider/AuthProvider';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
@@ -11,10 +11,9 @@ const MyClass = () => {
     const { refetch, data: classes = [] } = useQuery({
         queryKey: ['class', user?.email],
         enabled: !loading,
-        
         queryFn: async () => {
             const res = await axiosSecure(`/class?email=${user?.email}`)
-            console.log('res from axios', res)
+         
             return res.data;
         },
     })
@@ -30,7 +29,7 @@ const MyClass = () => {
 
             {
                
-                classes?.map(clas =>
+                classes?.map(clas => 
                     <div key={clas._id} className="card card-compact bg-base-100 shadow-xl">
                         <figure><img src={clas?.image} alt="Shoes" /></figure>
                         <div className="card-body">
@@ -40,7 +39,9 @@ const MyClass = () => {
                                 <button className="btn btn-outline btn-sm btn-success"> Update</button>
                             </div>
                         </div>
-                    </div>)
+                    </div> 
+                    
+                    )
             }
 
         </div>

@@ -1,20 +1,18 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure/useAxiosSecure';
 
 const Allusers = () => {
-  
-    const [role, setRole] = useState('student')
-
-
+    const [axiosSecure] = useAxiosSecure()
     const { data: users = [], refetch, } = useQuery(['users'], async () => {
-        const res = await fetch(`http://localhost:5000/users`)
-        return res.json();
+        const res = await axiosSecure.get(`/users`)
+        return res.data
     });
 
     const AdminHandaler = (user) => {
 
-        fetch(`http://localhost:5000/users/${role}/${user?._id}`, {
+        fetch(`http://localhost:5000/users/admin/${user?._id}`, {
             method: 'PATCH',
 
 
@@ -24,12 +22,26 @@ const Allusers = () => {
 
                 if (data.modifiedCount > 0) {
                     refetch();
-                  
+
+                }
+            })
+    }
+    const instractorHandaler = (user) => {
+
+        fetch(`http://localhost:5000/users/instractor/${user?._id}`, {
+            method: 'PATCH',
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.modifiedCount > 0) {
+                    refetch();
+
                 }
             })
     }
 
-    console.log(role)
+
     return (
         <div className='w-full'>
             <div className="overflow-x-auto">
@@ -70,23 +82,17 @@ const Allusers = () => {
 
                                     {
                                         user.role === 'admin' ? 'Admin' : <>
-                                            <button onClick={() => AdminHandaler(user, setRole('admin'))} className="btn btn-sm"> admin</button>
+                                            <button onClick={() => AdminHandaler(user)} className="btn btn-sm"> admin</button>
                                         </>
 
-                                    } <>
-                                        {
-                                            user.role === 'Instractor' ? 'instractor' : <>
-                                                
+                                    }
 
+                                    {
+                                        user.role === 'instractor' ? 'instractor' : <>
+                                            <button onClick={() => instractorHandaler(user)} className="btn btn-sm"> instractor</button>
+                                        </>
 
-                                                <input type="submit"   onClick={() => AdminHandaler(user, setRole('instractor'))}  className={`btn btn-sm `} value="Instractor" />
-                                            </>
-
-
-
-                                        }
-
-                                    </>
+                                    }
                                 </td>
 
                                 <td>
@@ -101,6 +107,7 @@ const Allusers = () => {
             </div>
         </div>
     );
+
 };
 
 export default Allusers;
