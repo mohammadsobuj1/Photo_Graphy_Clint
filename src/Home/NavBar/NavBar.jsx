@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
+import ActiveNav from '../../Components/ActiveLink/ActiveNav';
+import Title from '../../Components/Title/Title';
 
 const NavBar = () => {
     const {user, logOut} =useContext(AuthContext)
@@ -15,20 +17,21 @@ const logOutHandelar =()=>{
 
 
     const NavItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>Instructors</Link></li>
-        <li><Link to='/classes'>Classes</Link></li>
+        <li><ActiveNav to='/'>Home</ActiveNav></li>
+        <li><ActiveNav to='/'>Instructors</ActiveNav></li>
+        <li><ActiveNav to='/classes'>Classes</ActiveNav></li>
         {
             user ?
-                <li><Link to='/dashbord'>Dashboard </Link></li>
+                <li><ActiveNav to='/dashbord'>Dashboard </ActiveNav></li>
                 : ""
         }
-        <li><Link>bai</Link></li>
+       
     </>
 
     return (
         <div>
-            <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-gray-100 text-white">
+            <div className="navbar fixed z-10  bg-violet-400 text-black font-semibold">
+                <Title title={'Home'}/>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -38,7 +41,7 @@ const logOutHandelar =()=>{
                             {NavItems}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <a className=" normal-case text-xl">PEXL_PRO</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

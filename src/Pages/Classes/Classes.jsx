@@ -6,29 +6,38 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Classes = () => {
 
-    const [classes, setClasses] = useState()
+    // const [classes, setClasses] = useState()
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const loaction = useLocation()
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/class?status=aprove`)
-            .then(res => res.json())
-            .then(data => setClasses(data))
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/class?status=aprove`)
+    //         .then(res => res.json())
+    //         .then(data => setClasses(data))
 
-    }, [])
+    // }, [])
 
+    const { refetch, data: classes = [] } = useQuery({
+        queryKey: ['class', user?.email],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/class?status=aprove`)
+            return res.json();
+        },
+    })
 
-
+    console.log(classes)
 
 
 
     const SeclactHandelar = (classe) => {
-        const { _id, classname, email, enrolled_student, image, instructorname, price, status } = classe;
-        const selactdata = { classid: _id, classname, email: user.email, instractorEmail: email, enrolled_student, image, instructorname, price, status }
+
 
 
         if (user) {
+            const { _id, classname, email, enrolled_student, image, instructorname, price, status } = classe;
+            const selactdata = { classid: _id, classname, email: user.email, instractorEmail: email, enrolled_student, image, instructorname, price, status }
+
             fetch(`http://localhost:5000/selactedclass`, {
                 method: "POST",
                 headers: {

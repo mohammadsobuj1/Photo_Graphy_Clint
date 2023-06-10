@@ -9,8 +9,6 @@ import Login from '../Pages/Login/Login';
 import Registration from '../Pages/Registration/Registration';
 import Dashbord from '../LayOut/Dashbord';
 import AddClass from '../Pages/Dashbord/Instractor/AddClass/AddClass';
-import EnrolledStudent from '../Pages/Dashbord/Instractor/EnrolledStudent/EnrolledStudent';
-import FeedBack from '../Pages/Dashbord/Instractor/FeedBack/FeedBack';
 import Allusers from '../Pages/Dashbord/Allusers/Allusers';
 import MyClass from '../Pages/Dashbord/Instractor/Myclass/MyClass';
 import AdminRoute from './AdminRoute';
@@ -19,6 +17,9 @@ import PrivateRoute from './PrivetRoute.jsx/PrivateRoute';
 import ManageClasses from '../Pages/Dashbord/ManageClasses/ManageClasses';
 import Classes from '../Pages/Classes/Classes';
 import MySelectedClasses from '../Pages/Dashbord/Student/MySelectedClasses/MySelectedClasses';
+import Payment from '../Pages/Dashbord/Student/Payment/Payment';
+import MyEnroll from '../Pages/Dashbord/Student/MyEnroll/MyEnroll';
+import PaymentHistorey from '../Pages/Dashbord/Student/PaymentHistorey/PaymentHistorey';
 
 
 const router = createBrowserRouter([
@@ -53,14 +54,8 @@ const router = createBrowserRouter([
         element: <PrivateRoute> <Dashbord /></PrivateRoute>,
         children: [
 
-            {
-                path: '/dashbord/enroll',
-                element: <InstractorRoute> <EnrolledStudent /></InstractorRoute>
-            },
-            {
-                path: '/dashbord/feedback',
-                element: <FeedBack />
-            },
+           
+            
             {
                 path: '/dashbord/addclass',
                 element: <InstractorRoute><AddClass /></InstractorRoute>
@@ -79,7 +74,22 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashbord/myselactclaess',
-                element:<PrivateRoute> <MySelectedClasses /></PrivateRoute>
+                element: <PrivateRoute> <MySelectedClasses /></PrivateRoute>
+            },
+            {
+                path: '/dashbord/payment/:id',
+                element: <PrivateRoute> <Payment /></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/selactedclass/${params.id}`)
+            },
+            {
+                path: '/dashbord/myenroll',
+                element: <PrivateRoute> <MyEnroll /></PrivateRoute>,
+               
+            },
+            {
+                path: '/dashbord/historey',
+                element: <PrivateRoute> <PaymentHistorey /></PrivateRoute>,
+               
             },
         ]
     }
