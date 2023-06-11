@@ -19,7 +19,7 @@ const logOutHandelar =()=>{
 
     const NavItems = <>
         <li className='hover:bg-violet-400 hover:text-orange-300'><ActiveNav to='/'>Home</ActiveNav></li>
-        <li className='hover:bg-violet-400 hover:text-orange-300'><ActiveNav to='/'>Instructors</ActiveNav></li>
+        <li className='hover:bg-violet-400 hover:text-orange-300'><ActiveNav to='/instractor'>Instructors</ActiveNav></li>
         <li className='hover:bg-violet-400 hover:text-orange-300'><ActiveNav to='/classes'>Classes</ActiveNav></li>
         {
             user ?

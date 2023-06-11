@@ -5,6 +5,7 @@ import useInstractor from '../Hooks/useInstractor/useInstractor';
 import ActiveLink from '../Components/ActiveLink/ActiveLink';
 import { FaArrowCircleRight, FaCalendarCheck, FaHome, FaHouseUser, FaIdCard, FaMix, FaMoneyCheckAlt, FaPaste, FaRegAddressCard } from "react-icons/fa";
 import Title from '../Components/Title/Title';
+import ActiveNav from '../Components/ActiveLink/ActiveNav';
 
 const Dashbord = () => {
     const [isAdmin] = useAdmin()
@@ -32,8 +33,8 @@ const Dashbord = () => {
 
                     {
                         isAdmin ? <>
-                            <li><Link to='/dashbord/allusers'>ALL USERS</Link></li>
-                            <li><Link to='/dashbord/manageclass'>Manage Class</Link></li>
+                            <li><ActiveLink to='/dashbord/allusers'>ALL USERS</ActiveLink></li>
+                            <li><ActiveLink to='/dashbord/manageclass'>Manage Class</ActiveLink></li>
                         </>
                             : "" || isInstractor ? <>
 

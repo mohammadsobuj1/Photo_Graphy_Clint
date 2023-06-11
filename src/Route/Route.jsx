@@ -22,6 +22,7 @@ import MyEnroll from '../Pages/Dashbord/Student/MyEnroll/MyEnroll';
 import PaymentHistorey from '../Pages/Dashbord/Student/PaymentHistorey/PaymentHistorey';
 import TotalEnroll from '../Pages/Dashbord/Instractor/TotalEnroll/TotalEnroll';
 import Update from '../Pages/Dashbord/Instractor/Myclass/Update';
+import Instractore from '../Pages/Instractore/Instractore';
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
             {
                 path: '/classes',
                 element: <Classes />
+            },
+            {
+                path: '/instractor',
+                element: <Instractore />
             },
 
 

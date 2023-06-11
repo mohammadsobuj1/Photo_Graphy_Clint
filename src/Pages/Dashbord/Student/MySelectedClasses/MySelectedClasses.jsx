@@ -63,7 +63,7 @@ const MySelectedClasses = () => {
                 <table className="md:table table-zebra">
                     {/* head */}
                     <thead>
-                        <tr className='text-sm font-semibold border-b-2 bg-violet-400 text-white'>
+                        <tr className='text-sm font-semibold border-b-4 border-white bg-violet-400 text-white'>
                             <th>#</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
@@ -80,7 +80,7 @@ const MySelectedClasses = () => {
                             cartClasses.map((cartClass, index) => <tr key={cartClass._id}>
                                 <td><p className='font-serif'>{index + 1}</p></td>
                                 <td><p className='font-serif font-semibold'>{cartClass?.classname}</p></td>
-{console.log(cartClass._id)}
+                                
                                 <td><p className='font-medium font-sans '>{cartClass?.instructorname}</p></td>
                                 <td><p className='font-medium font-sans '>{cartClass?.enrolled_student}</p></td>
                                 

@@ -13,12 +13,7 @@ const Classes = () => {
     const navigate = useNavigate()
     const loaction = useLocation()
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/class?status=aprove`)
-    //         .then(res => res.json())
-    //         .then(data => setClasses(data))
-
-    // }, [])
+   
 
     const { refetch, data: classes = [] } = useQuery({
         queryKey: ['class', user?.email],
@@ -120,7 +115,7 @@ const Classes = () => {
 
                                 <div className="card-actions justify-center">
                                     {classe.seats <= 0 ? <>
-                                        <p className='badge badge-error text-xs font-semibold text-white font-mono'>SEATS full con't selact </p>
+                                        <p className='badge badge-error text-xs font-semibold text-white font-mono'>SEATS full can't selact </p>
                                     </> :
                                         <button className="btn btn-sm px-10 border-none bg-gradient-to-r from-violet-500 to-violet-400 font-sans text-white" onClick={() => SeclactHandelar(classe)} >Selact</button >
                                     }
