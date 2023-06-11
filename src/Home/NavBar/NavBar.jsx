@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 import ActiveNav from '../../Components/ActiveLink/ActiveNav';
 import Title from '../../Components/Title/Title';
+import { FaCamera } from 'react-icons/fa';
 
 const NavBar = () => {
     const {user, logOut} =useContext(AuthContext)
@@ -17,12 +18,12 @@ const logOutHandelar =()=>{
 
 
     const NavItems = <>
-        <li><ActiveNav to='/'>Home</ActiveNav></li>
-        <li><ActiveNav to='/'>Instructors</ActiveNav></li>
-        <li><ActiveNav to='/classes'>Classes</ActiveNav></li>
+        <li className='hover:bg-violet-400 hover:text-orange-300'><ActiveNav to='/'>Home</ActiveNav></li>
+        <li className='hover:bg-violet-400 hover:text-orange-300'><ActiveNav to='/'>Instructors</ActiveNav></li>
+        <li className='hover:bg-violet-400 hover:text-orange-300'><ActiveNav to='/classes'>Classes</ActiveNav></li>
         {
             user ?
-                <li><ActiveNav to='/dashbord'>Dashboard </ActiveNav></li>
+                <li className='hover:bg-violet-400 hover:text-orange-300'><ActiveNav to='/dashbord'>Dashboard </ActiveNav></li>
                 : ""
         }
        
@@ -30,7 +31,7 @@ const logOutHandelar =()=>{
 
     return (
         <div>
-            <div className="navbar fixed z-10  bg-violet-400 text-black font-semibold">
+            <div className="navbar sticky bg-violet-400 text-black font-semibold">
                 <Title title={'Home'}/>
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -41,7 +42,10 @@ const logOutHandelar =()=>{
                             {NavItems}
                         </ul>
                     </div>
-                    <a className=" normal-case text-xl">PEXL_PRO</a>
+                    <div className="flex gap-2  items-center justify-center">
+                    <span className='text-xl hover:text-orange-300 text-white'><FaCamera /></span>
+                    <a className=" normal-case text-white font-mono text-xl hover:text-orange-300"> PEXL_PRO</a>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -52,7 +56,7 @@ const logOutHandelar =()=>{
                     {
                         user ? <div className='flex md:gap-5'>
                             <div className='md:flex gap-2 mt-2  hover: '>
-                                <Link onClick={logOutHandelar} className='md:text-xl font-bold font-italic' to='/login'>Log Out</Link>
+                                <Link onClick={logOutHandelar} className='md:text-xl font-bold font-italic text-white ' to='/login'>Log Out</Link>
 
                             </div>
                             <div className="tooltip  tooltip-secondary tooltip-bottom " data-tip={user.displayName}>
@@ -69,7 +73,7 @@ const logOutHandelar =()=>{
                             :
                             <div className='md:flex gap-2 font-italic hover:text-orange-400 '>
                                 {/* <FaRegUserCircle className='text-2xl mt-1' /> */}
-                                <Link className='text-xl font-bold' to='/login'>Log In</Link>
+                                <Link className='text-xl font-bold text-white' to='/login'>Log In</Link>
 
                             </div>
                     }

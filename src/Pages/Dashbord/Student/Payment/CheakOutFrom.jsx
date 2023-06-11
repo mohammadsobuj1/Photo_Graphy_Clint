@@ -19,7 +19,7 @@ const CheakOutFrom = ({ price, data }) => {
         if (price > 0) {
             axiosSecure.post('/create-payment-intent', { price })
                 .then(res => {
-                    console.log(res.data.clientSecret)
+                   
                     setClientSecret(res.data.clientSecret);
                 })
         }
@@ -84,13 +84,11 @@ const CheakOutFrom = ({ price, data }) => {
                 price,
                 date: new Date(),
                 name: data?.name,
-                name: data?.name,
-                class_id: data._id,
+                class_id: data.classid,
                 className: data?.classname,
                 instructorname: data?.instructorname,
-                enrolled_student: data?.enrolled_student
-
-
+                enrolled_student: data?.enrolled_student,
+                instractorEmail: data?.instractorEmail
 
 
             }
@@ -143,6 +141,7 @@ const CheakOutFrom = ({ price, data }) => {
             />
             <p className='text-sm font-semibold text-rose-600 my-2'> {error}</p>
             <p className='text-sm font-semibold text-success my-2'> { TransactionId}</p>
+            <p>Test Cart :  4242424242424242</p>
             <div className="">
                 <button className="btn btn-sm px-7  border-none bg-gradient-to-r from-violet-500 to-violet-400 font-sans text-white" type="submit" disabled={!stripe || !clientSecret}>
                     Pay

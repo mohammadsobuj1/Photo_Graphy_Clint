@@ -16,7 +16,7 @@ const Payment = () => {
 
     const total = data.price
     const price = parseFloat(total.toFixed(2))
-    console.log(data)
+   
     return (
         <div className='w-[80%] mx-auto'>
             <HeaderSection subheader={'give info for pay'} header={'payment now '} />

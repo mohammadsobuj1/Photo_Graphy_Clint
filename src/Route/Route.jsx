@@ -20,6 +20,8 @@ import MySelectedClasses from '../Pages/Dashbord/Student/MySelectedClasses/MySel
 import Payment from '../Pages/Dashbord/Student/Payment/Payment';
 import MyEnroll from '../Pages/Dashbord/Student/MyEnroll/MyEnroll';
 import PaymentHistorey from '../Pages/Dashbord/Student/PaymentHistorey/PaymentHistorey';
+import TotalEnroll from '../Pages/Dashbord/Instractor/TotalEnroll/TotalEnroll';
+import Update from '../Pages/Dashbord/Instractor/Myclass/Update';
 
 
 const router = createBrowserRouter([
@@ -67,6 +69,15 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/myclass',
                 element: <InstractorRoute><MyClass /></InstractorRoute>
+            },
+            {
+                path: '/dashbord/totalenroll',
+                element: <InstractorRoute><TotalEnroll /></InstractorRoute>
+            },
+            {
+                path: '/dashbord/updateclass/:id',
+                element: <InstractorRoute><Update /></InstractorRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/updateclass/${params.id}`)
             },
             {
                 path: '/dashbord/manageclass',

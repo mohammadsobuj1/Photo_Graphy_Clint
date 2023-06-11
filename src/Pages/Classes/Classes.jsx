@@ -3,6 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
+import HeaderSection from '../../Components/AuthProvider/HeaderSection/HeaderSection';
+import Title from '../../Components/Title/Title';
 
 const Classes = () => {
 
@@ -26,7 +28,7 @@ const Classes = () => {
         },
     })
 
-    console.log(classes)
+
 
 
 
@@ -83,32 +85,57 @@ const Classes = () => {
 
 
 
-
+   
 
     return (
-        <div>
-            {
-                classes?.map(classe =>
-                    <div key={classe._id}
-                        className={`card w-96 bg-base-100 shadow-xl${classe?.seats == 0 ? 'bg-red-300' : console.log('by')}  `}>
-                        <figure><img src={classe?.image} alt="Shoes" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">
-                                {classe?.instructorname}
+        <div className='bg-gray-200 '>
+            <HeaderSection header={'ALL APROVED CLASSES'} subheader={'Enroll now'} />
+            <Title title={'Classes'} />
 
-                            </h2>
-                            <p>{classe?.seats}</p>
-                            <p>{classe?.price}</p>
+            <div className="grid md:grid-cols-3 gap-7 w-[96%] mx-auto">
 
-                            <div className="card-actions justify-end">
-                                <div onClick={() => SeclactHandelar(classe)} className="btn btn-outline">Selact</div>
+                {
+                    classes?.map(classe =>
 
+                        <div key={classe._id}
+                            className={`card w-[96%]  shadow-xl ${classe.seats <= 0 ? 'bg-red-300  ' : "bg-violet-200 "}   `}>
+                            <figure><img src={classe?.image} alt="Shoes" /></figure>
+                            <div className="card-body">
+                                <h2 className="card-title my-2" >
+                                    Instructor Name : {classe?.instructorname}
+
+                                </h2>
+                                <p className='font-semibold font-mono my-'>Class Name :  {classe?.classname}</p>
+                                <div className="md:flex justify-between ">
+                                    <p className='font-semibold font-mono'>seats : {classe?.seats}</p>
+                                    <p className='font-semibold font-mono'>Price :$ {classe?.price}</p>
+
+                                </div>
+
+                                <div className=" md:flex justify-evenly ">
+                                    
+                                    <p className='font-semibold font-mono'>Students :{classe?.enrolled_student}</p>
+
+                                </div>
+
+                                <div className="card-actions justify-center">
+                                    {classe.seats <= 0 ? <>
+                                        <p className='badge badge-error text-xs font-semibold text-white font-mono'>SEATS full con't selact </p>
+                                    </> :
+                                        <button className="btn btn-sm px-10 border-none bg-gradient-to-r from-violet-500 to-violet-400 font-sans text-white" onClick={() => SeclactHandelar(classe)} >Selact</button >
+                                    }
+
+
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                )
-            }
+
+
+
+                    )
+                }
+            </div>
         </div>
     );
 };

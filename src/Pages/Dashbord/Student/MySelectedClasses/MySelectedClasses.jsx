@@ -56,7 +56,7 @@ const MySelectedClasses = () => {
 
 
     return (
-        <div className='md:w-[80%] mx-auto md:h-full'>
+        <div className='md:w-[90%] mx-auto md:h-full'>
             <Title title={'Selact Classes'}/>
             <HeaderSection subheader={'booking first'} header={'my seclacted classes'} />
             <div className="md:overflow-x-auto">
@@ -80,11 +80,11 @@ const MySelectedClasses = () => {
                             cartClasses.map((cartClass, index) => <tr key={cartClass._id}>
                                 <td><p className='font-serif'>{index + 1}</p></td>
                                 <td><p className='font-serif font-semibold'>{cartClass?.classname}</p></td>
-
+{console.log(cartClass._id)}
                                 <td><p className='font-medium font-sans '>{cartClass?.instructorname}</p></td>
                                 <td><p className='font-medium font-sans '>{cartClass?.enrolled_student}</p></td>
+                                
                                 <td className='font-medium font-sans '>$ {cartClass?.price}</td>
-
                          
 
                                 <td><Link to={`/dashbord/payment/${cartClass?._id}`}><button className="btn btn-sm   border-none bg-gradient-to-r from-violet-500 to-violet-400 font-sans text-white">PAYMENT</button></Link></td>
