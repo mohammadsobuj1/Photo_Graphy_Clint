@@ -86,6 +86,8 @@ const Allusers = () => {
         <div className='w-[95%] mx-auto'>
             <HeaderSection header={'Manage Users '} subheader={'All users'} />
             <Title title={'Manage Users'} />
+
+            <p className='text-xl font-sans text-violet-500 my-4 font-semibold'> Total Users : {users.length}</p>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}
@@ -127,14 +129,14 @@ const Allusers = () => {
                                     <div className="flex gap-2 items-center justify-center">
 
                                         {
-                                            user.role === 'admin' ? <div className='font-medium font-sans text-red-400'>ADMIN</div> : <>
+                                            user.role === 'admin' ? <div className='font-sans text-red-400 font-bold'>ADMIN</div> : <>
                                                 <button onClick={() => AdminHandaler(user)} className="btn btn-xs   border-none bg-gradient-to-r from-violet-500 to-violet-400 font-sans text-white"> admin</button>
                                             </>
 
                                         }
 
                                         {
-                                            user.role === 'instractor' ? <div className='font-medium font-sans text-blue-400'>INSTRACTOR</div> : <>
+                                            user.role === 'instractor' ? <div className=' font-sans text-blue-400 font-bold'>INSTRACTOR</div> : <>
                                                 <button onClick={() => instractorHandaler(user)} className="btn btn-xs  border-none bg-gradient-to-r from-violet-500 to-violet-400 font-sans text-white"> instractor</button>
 
 

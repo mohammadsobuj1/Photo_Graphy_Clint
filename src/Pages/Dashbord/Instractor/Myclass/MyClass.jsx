@@ -23,7 +23,6 @@ const MyClass = () => {
 
 
 
-    console.log(classes)
     const modal = <>
         <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
             <form method="dialog" className="modal-box  border-4 bg-violet-200 border-violet-400">
@@ -75,7 +74,7 @@ const MyClass = () => {
                                         </> : ""
                                     }
                                     <Link to={`/dashbord/updateclass/${clas?._id}`}><button className="btn btn-sm   border-none bg-gradient-to-r from-violet-500 to-violet-400 font-sans text-white">Update</button></Link>
-                                   
+
                                 </div>
                             </div>
                         </div>
