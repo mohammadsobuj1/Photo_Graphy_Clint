@@ -125,27 +125,27 @@ const Registration = () => {
 
 
 
-    const googleHandaler = () => {
-        googlelogIn()
-            .then(result => {
+    // const googleHandaler = () => {
+    //     googlelogIn()
+    //         .then(result => {
 
-                const userData = { name: result.user.displayName, email: result.user.email, photo: result.user.photoURL }
+    //             const userData = { name: result.user.displayName, email: result.user.email, photo: result.user.photoURL }
 
-                fetch(`https://assainment-sarver.vercel.app/users`, {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(userData)
-                })
-                    .then(res => res.json())
-                    .then(() =>
+    //             fetch(`https://assainment-sarver.vercel.app/users`, {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'content-type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(userData)
+    //             })
+    //                 .then(res => res.json())
+    //                 .then(() =>
 
-                        navigate('/')
+    //                     navigate('/')
 
-                    )
-            })
-    }
+    //                 )
+    //         })
+    // }
 
 
 
@@ -190,7 +190,7 @@ const Registration = () => {
 
                             </div>
                             <div className="mt-2">
-                                <input  {...register("password", { required: true, maxLength: 20 })} id="password" name="password" type="password" required className="block w-full rounded-md px-2 border-0 py-1.5  shadow-sm ring-1 ring-inset text-orange-600 font-semibold ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                                <input  {...register("password", { required: true, minLength:6, maxLength: 20 , pattern:!/(?=.*[A-Z].*[A-Z])/ })} id="password" name="password" type="password" required className="block w-full rounded-md px-2 border-0 py-1.5  shadow-sm ring-1 ring-inset text-orange-600 font-semibold ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
 
                             </div>
                         </div>
