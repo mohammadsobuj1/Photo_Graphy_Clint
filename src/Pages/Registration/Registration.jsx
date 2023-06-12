@@ -18,6 +18,7 @@ const Registration = () => {
 
 
     const onSubmit = data => {
+        console.log(data)
         const { name, email, photo, password } = data ;
         createUser(email, password)
             .then(result => {
@@ -59,69 +60,6 @@ const Registration = () => {
 
     }
 
-
-
-    // const submitHandelar = (event) => {
-    //     event.preventDefault()
-    //     setError("")
-    //     const form = event.target;
-    //     const name = form.name.value;
-    //     const photo = form.photo.value;
-    //     const email = form.email.value;
-    //     const password = form.password.value;
-    //     if (password.length < 6) {
-
-    //         toast.error(" Password must be More Than 6 Charecter")
-    //     }
-
-    //     if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-    //         setError("Add Minimum two Uppercase letter")
-    //         return
-    //     }
-    //     if (name.length < 0) {
-    //         setError("plas")
-    //     }
-
-    //     createUser(email, password)
-    //         .then(result => {
-
-
-
-    //             changeName(result.user, name, photo)
-    //                 .then(() => {
-
-    //                     const userData = { name, email, photo }
-
-    //                     fetch(`https://assainment-sarver.vercel.app/users`, {
-    //                         method: 'POST',
-    //                         headers: {
-    //                             'content-type': 'application/json'
-    //                         },
-    //                         body: JSON.stringify(userData)
-    //                     })
-    //                         .then(res => res.json())
-    //                         .then(data => {
-    //                             if (data.insertedId) {
-    //                                 form.reset()
-    //                                 navigate('/')
-
-    //                             }
-
-    //                         })
-
-    //                     setReload(new Date().getTime())
-    //                 })
-    //                 .catch(error => {
-    //                     setError(error.message)
-    //                 })
-
-    //         })
-    //         .catch(error => {
-    //             setError(error.message)
-    //         })
-
-
-    // }
 
 
 
@@ -172,7 +110,7 @@ const Registration = () => {
                         <div>
                             <label className="block text-sm font-medium leading-6 text-white">Photo Url</label>
                             <div className="mt-2">
-                                <input  {...register("photo", { required: true, maxLength: 20 })} id="photo" name="photo" type="text" required className="block px-2 w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 text-orange-600 font-semibold focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                                <input  {...register("photo", { required: true, maxLength: 500})} id="photo" name="photo" type="url" required className="block px-2 w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 text-orange-600 font-semibold focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
 
                             </div>
                         </div>
@@ -190,7 +128,7 @@ const Registration = () => {
 
                             </div>
                             <div className="mt-2">
-                                <input  {...register("password", { required: true, minLength:6, maxLength: 20 , pattern:!/(?=.*[A-Z].*[A-Z])/ })} id="password" name="password" type="password" required className="block w-full rounded-md px-2 border-0 py-1.5  shadow-sm ring-1 ring-inset text-orange-600 font-semibold ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                                <input  {...register("password", { required: true, minLength:6, maxLength: 20 ,  })} id="password" name="password" type="password" required className="block w-full rounded-md px-2 border-0 py-1.5  shadow-sm ring-1 ring-inset text-orange-600 font-semibold ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
 
                             </div>
                         </div>
@@ -200,7 +138,7 @@ const Registration = () => {
                             <button type="submit" className="flex w-full text-white justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Registration</button>
                         </div>
                     </form>
-
+                    {/* pattern:!/(?=.*[A-Z].*[A-Z])/ */}
 
                     <p className='text-center text-white mt-3 font-bold'>---------Or Continue With----------</p>
 

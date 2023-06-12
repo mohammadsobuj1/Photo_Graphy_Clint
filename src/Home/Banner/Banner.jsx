@@ -35,11 +35,11 @@ const Bannar = () => {
                 <div id="item2" className="carousel-item w-full">
 
 
-                    <div className="hero h-full" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1524863479829-916d8e77f114?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8eW9nYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60")` }}>
+                    <div className="hero h-full" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1611529375210-577127775587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmF0dXJlJTIwaW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60")` }}>
                         <div className="hero-overlay bg-opacity-35"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Hero's univers</p></h1>
+                                <h1 className="text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Pexl_Pro</p></h1>
                                 <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                                 {btnGroup}
                             </div>
@@ -47,7 +47,7 @@ const Bannar = () => {
                     </div>
                 </div>
                 <div id="item3" className="carousel-item w-full">
-                    <div className="hero h-full" style={{ backgroundImage: `url("https://media.istockphoto.com/id/1322778088/photo/close-up-group-of-adult-people-practicing-yoga.webp?b=1&s=170667a&w=0&k=20&c=NiAxjPcC0TJ91e17gLwHpCn015cYnvNjCurOXm2-zpE=")` }}>
+                    <div className="hero h-full" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1617608436966-601ebdeabe82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bmF0dXJlJTIwaW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60")` }}>
                         <div className="hero-overlay bg-opacity-35"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -59,7 +59,7 @@ const Bannar = () => {
                     </div>
                 </div>
                 <div id="item4" className="carousel-item w-full">
-                    <div className="hero h-full" style={{ backgroundImage: `url("https://media.istockphoto.com/id/1438703240/photo/yoga-outdoor-class-in-new-york.webp?b=1&s=170667a&w=0&k=20&c=gImvry4sPgxwvq_RzaSNnw_T25zeDiGBaDEyeZC6uMQ=")` }}>
+                    <div className="hero h-full" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1492127042590-8094c493b510?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5hdHVyZSUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60")` }}>
                         <div className="hero-overlay bg-opacity-35"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
