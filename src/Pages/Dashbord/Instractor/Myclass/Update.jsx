@@ -32,7 +32,7 @@ const update = useLoaderData()
                     const { classname, price, seats } = data;
                     const addData = { classname, seats: parseFloat(seats), image: imgURL, price: parseFloat(price), }
 
-                    fetch(`http://localhost:5000/update/${update?._id}`, {
+                    fetch(`https://assainment-sarver.vercel.app/update/${update?._id}`, {
                         method: "PUT",
                         headers: {
                             "content-type": "application/json"

@@ -10,9 +10,9 @@ const useAxiosSecure = () => {
   const navigate = useNavigate(); 
 
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://assainment-sarver.vercel.app', 
   });
-
+  
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
       const token = localStorage.getItem('access-token');

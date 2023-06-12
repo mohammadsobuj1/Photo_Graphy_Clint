@@ -39,41 +39,51 @@ const MyClass = () => {
 
 
 
+
     return (
         <>
 
             <div className="w-full">  <HeaderSection header={'my  classes'} subheader={'all cless here'} /></div>
-            <Title title={'my cless'} />
-
-
+            <Title title={'my class'} />
             <div className='mx-5  h-full grid md:grid-cols-2 lg:grid-cols-3 gap-2'>
-
                 {
+                    classes.map(myclass =>
 
-                    classes?.map(clas =>
-                        <div key={clas._id} className="card card-compact  bg-base-100 shadow-xl w-[95%] mx-auto ">
-
-                            <figure><img src={clas?.image} alt="Shoes" /></figure>
+                        <div key={myclass?._id}  className="card w-96 bg-base-100 shadow-xl">
+                            <figure><img src={myclass?.image} alt="Shoes" /></figure>
                             <div className="card-body">
-                                <h2 className="card-title text-violet-500 font-serif">Cless Name : <span className='text-gray-600 font-mono'>{clas?.classname}</span></h2>
-                                <h2 className=" text-violet-500 font-serif">Email : <span className='text-gray-600 font-mono'>{clas?.email}</span></h2>
+                                <h2 lassName="card-title text-violet-500 font-serif" > Cless Name : {myclass?.classname}</h2>
 
-                                <div className="md:flex justify-between my-3">
+                                <div className="md:flex justify-between items-center">
                                     <div className='text-gray-600 font-mono'>Status:
                                         {
-                                            clas.status === 'aprove' ? <span className="badge badge-success font-mono text-white">{clas?.status}</span> : <span className="badge badge-error font-mono text-white">{clas?.status}</span>
+                                            myclass.status === 'aprove' ? <div className="badge badge-success font-mono text-white">{myclass?.status}</div> : <div className="badge badge-error font-mono text-white">{myclass?.status}</div>
                                         }</div>
-                                    <div className="text-sm text-gray-600 font-mono font-semibold" >price: ${clas?.price}</div>
+                                    <div className="font-semibold"> Seats :
+                                        {myclass?.seats}
+                                    </div>
                                 </div>
-                                <div className="text-sm text-gray-600 font-mono font-semibold" >Students: {clas?.enrolled_student}</div>
-                                <div className="card-actions flex justify-between">
+
+                                <h2 className=" text-violet-500 font-serif">Email : {myclass?.email} </h2>
+
+                                <div className="md:flex justify-between items-center">
+                                    <div className="">
+                                        Students:{myclass?.enrolled_student}
+                                    </div>
+                                    <div className="">
+                                        Price:$ {myclass?.price}
+                                    </div>
+                                </div>
+
+                                <div className="card-actions md:flex justify-between items-center">
                                     {
-                                        clas?.status === 'deny' ? <>
+                                        myclass?.status === 'deny' ? <>
                                             <button className="btn btn-sm   border-none bg-gradient-to-r from-red-500 to-orange-400 font-sans text-white" onClick={() => window.my_modal_5.showModal()}>FEED BACK</button>
                                             {modal}
                                         </> : ""
                                     }
-                                    <Link to={`/dashbord/updateclass/${clas?._id}`}><button className="btn btn-sm   border-none bg-gradient-to-r from-violet-500 to-violet-400 font-sans text-white">Update</button></Link>
+
+                                    <Link to={`/dashbord/updateclass/${myclass?._id}`}>   <button className="btn btn-sm px-7  border-none bg-gradient-to-r from-violet-500 to-violet-400 font-sans text-white">Upadate</button></Link>
 
                                 </div>
                             </div>
@@ -83,8 +93,57 @@ const MyClass = () => {
                 }
 
             </div>
+
+
+
         </>
     );
 };
 
 export default MyClass;
+
+
+
+
+
+
+
+
+{/* <div className='mx-5  h-full grid md:grid-cols-2 lg:grid-cols-3 gap-2'>
+
+{
+
+    classes?.map(clas =>
+        <div key={clas._id} className="card card-compact  bg-base-100 shadow-xl w-[95%] mx-auto ">
+
+            <figure><img src={clas?.image} alt="Shoes" /></figure>
+            <div className="card-body">
+                <h2 className="card-title text-violet-500 font-serif">Cless Name : <span className='text-gray-600 font-mono'>{clas?.classname}</span></h2>
+                <h2 className=" text-violet-500 font-serif">Email : <span className=' font-mono text-black'>{clas?._id}</span></h2>
+                {
+                    console.log(clas?._id)
+                }
+                <div className="md:flex justify-between my-3">
+                   
+                    <div className="text-sm text-gray-600 font-mono font-semibold" >price: ${clas?.price}</div>
+                </div>
+                <div className=" md:flex justify-between items-center ">
+                    <div className="text-sm text-gray-600 font-mono font-semibold" >Students: {clas?.enrolled_student}</div>
+                    <div className="text-sm text-gray-600 font-mono font-semibold" >Seats: {clas?.seats}</div>
+                </div>
+
+                <div className="card-actions flex justify-between">
+                
+
+
+// <Link to={`/dashbord/updateclass/${clas?._id}`}>Update</Link>
+
+//         </div>
+//     </div>
+
+// </div>
+
+//     )
+// }
+
+// </div> */}

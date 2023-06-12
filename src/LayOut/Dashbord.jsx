@@ -33,11 +33,12 @@ const Dashbord = () => {
 
                     {
                         isAdmin ? <>
+                            <li><ActiveLink to='/'> <FaHome className='text-xl' /> Home</ActiveLink></li>
                             <li><ActiveLink to='/dashbord/allusers'>ALL USERS</ActiveLink></li>
                             <li><ActiveLink to='/dashbord/manageclass'>Manage Class</ActiveLink></li>
                         </>
                             : "" || isInstractor ? <>
-
+                                <li><ActiveLink to='/'> <FaHome className='text-xl' /> Home</ActiveLink></li>
                                 <li><ActiveLink to='/dashbord/addclass'><FaRegAddressCard className='text-xl' />  Add Class</ActiveLink></li>
                                 <li><ActiveLink to='/dashbord/myclass'> <FaPaste className='text-xl' /> My Class</ActiveLink></li>
                                 <li><ActiveLink to='/dashbord/totalenroll'> <FaMix className='text-xl' /> Total Enroll</ActiveLink></li>

@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import HeaderSection from '../../Components/AuthProvider/HeaderSection/HeaderSection';
 import Title from '../../Components/Title/Title';
 
+
 const Classes = () => {
 
     // const [classes, setClasses] = useState()
@@ -13,12 +14,13 @@ const Classes = () => {
     const navigate = useNavigate()
     const loaction = useLocation()
 
-   
+
+
 
     const { refetch, data: classes = [] } = useQuery({
         queryKey: ['class', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/class?status=aprove`)
+            const res = await fetch(`https://assainment-sarver.vercel.app/class?status=aprove`)
             return res.json();
         },
     })
@@ -31,11 +33,13 @@ const Classes = () => {
 
 
 
-        if (user) {
-            const { _id, classname, email, enrolled_student, image, instructorname, price, status } = classe;
-            const selactdata = { classid: _id, classname, email: user.email, instractorEmail: email, enrolled_student, image, instructorname, price, status }
 
-            fetch(`http://localhost:5000/selactedclass`, {
+        const { _id, classname, email, enrolled_student, image, instructorname, price, status } = classe;
+        const selactdata = { classid: _id, classname, email: user?.email, instractorEmail: email, enrolled_student, image, instructorname, price, status }
+
+
+        if (user) {
+            fetch(`https://assainment-sarver.vercel.app/selactedclass`, {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -58,9 +62,10 @@ const Classes = () => {
 
         }
 
+
+
+
         else {
-
-
             Swal.fire({
                 title: 'Log in first',
                 text: "You won't be able to revert this!",
@@ -76,18 +81,21 @@ const Classes = () => {
             })
         }
 
+
     }
 
 
 
-   
+
+
+
 
     return (
         <div className='bg-gray-200 '>
             <HeaderSection header={'ALL APROVED CLASSES'} subheader={'Enroll now'} />
             <Title title={'Classes'} />
 
-            <div className="grid md:grid-cols-3 gap-7 w-[96%] mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 w-[96%] mx-auto">
 
                 {
                     classes?.map(classe =>
@@ -108,7 +116,7 @@ const Classes = () => {
                                 </div>
 
                                 <div className=" md:flex justify-evenly ">
-                                    
+
                                     <p className='font-semibold font-mono'>Students :{classe?.enrolled_student}</p>
 
                                 </div>

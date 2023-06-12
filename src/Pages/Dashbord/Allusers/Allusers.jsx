@@ -16,7 +16,7 @@ const Allusers = () => {
 
     const AdminHandaler = (user) => {
 
-        fetch(`http://localhost:5000/users/admin/${user?._id}`, {
+        fetch(`https://assainment-sarver.vercel.app/users/admin/${user?._id}`, {
             method: 'PATCH',
 
 
@@ -32,7 +32,7 @@ const Allusers = () => {
     }
     const instractorHandaler = (user) => {
 
-        fetch(`http://localhost:5000/users/instractor/${user?._id}`, {
+        fetch(`https://assainment-sarver.vercel.app/users/instractor/${user?._id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
@@ -58,7 +58,7 @@ const Allusers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteuser/${user?._id}`, {
+                fetch(`https://assainment-sarver.vercel.app/deleteuser/${user?._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

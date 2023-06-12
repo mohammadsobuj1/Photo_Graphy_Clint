@@ -7,7 +7,7 @@ const Bannar = () => {
         <div className="btn-group">
             <button className="btn btn-active">Button</button>
             <button className="btn btn-outline btn-accent text-white">Button</button>
-            
+
         </div>
     </>
 
@@ -20,14 +20,14 @@ const Bannar = () => {
 
             <div className="carousel h-96 md:h-screen w-full">
                 <div id="item1" className="carousel-item w-full">
-                    <div className="hero h-full" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHlvZ2F8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60")` }}>
+                    <div className="hero h-full" style={{ backgroundImage: `url("https://img.freepik.com/free-photo/closeup-shot-beautiful-butterfly-with-interesting-textures-orange-petaled-flower_181624-7640.jpg?size=626&ext=jpg&ga=GA1.1.1318835724.1670345660&semt=ais")` }}>
                         <div className="hero-overlay bg-opacity-35"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
 
                                 <h1 className="text-3xl md:text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Hero's univers</p></h1>
                                 <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                             {btnGroup}
+                                {btnGroup}
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@ const Bannar = () => {
                             <div className="max-w-md">
                                 <h1 className="text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Hero's univers</p></h1>
                                 <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                             {btnGroup}
+                                {btnGroup}
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@ const Bannar = () => {
                             <div className="max-w-md">
                                 <h1 className="text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Hero's univers</p></h1>
                                 <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                             {btnGroup}
+                                {btnGroup}
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ const Bannar = () => {
                             <div className="max-w-md">
                                 <h1 className="text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Hero's univers</p></h1>
                                 <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                             {btnGroup}
+                                {btnGroup}
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ const PaymentHistorey = () => {
     });
 
 
-
+    
 
     const totalPrice = mypayment.reduce(
         (accumulator, currentValue) => accumulator + currentValue.price,
@@ -22,7 +22,7 @@ const PaymentHistorey = () => {
     );
 
     return (
-        <div className='w-[80%] mx-auto h-full '>
+        <div className='w-[%] mx-auto h-full '>
             <Title title={'Payment Historey'} />
             <HeaderSection subheader={'happy payment'} header={'payment history'} />
             <div className="flex justify-between">
@@ -40,6 +40,7 @@ const PaymentHistorey = () => {
                             <th>Email</th>
                             <th>Price</th>
                             <th>Payment Date</th>
+                            <th>Transaction Id</th>
 
 
                         </tr>
@@ -54,8 +55,9 @@ const PaymentHistorey = () => {
                                 <td><p className='font-medium font-sans '>{payment?.email}</p></td>
 
                                 <td className='font-medium font-sans '>$ {payment?.price}</td>
-                                <td className='font-medium font-sans '>$ {payment?.date}</td>
-
+                                
+                                <td className='font-medium font-sans '> {payment?.date}</td>
+                                <td className='font-medium font-sans '> {payment?.transactionId}</td>
 
                             </tr>)
                         }

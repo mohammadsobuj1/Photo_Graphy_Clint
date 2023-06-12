@@ -1,10 +1,12 @@
+
 import React, { useContext } from 'react';
 import HeaderSection from '../../Components/AuthProvider/HeaderSection/HeaderSection';
 import Title from '../../Components/Title/Title';
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 
-const Instractore = () => {
+
+const PopulerInstractor = () => {
     const { user } = useContext(AuthContext)
 
     const { refetch, data: instractors = [] } = useQuery({
@@ -15,12 +17,10 @@ const Instractore = () => {
         },
     })
 
-
-
     return (
-        <div>
-            <HeaderSection header={'all instractor'} subheader={'meet our mentors'} />
-            <Title title={'Instractors'} />
+        <div className='my-10'>
+            <HeaderSection header={'populer instractor'} subheader={'meet our mentors'} />
+           
 
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-7 w-[96%] mx-auto">
 
@@ -36,15 +36,15 @@ const Instractore = () => {
                                     Instructor Name :  {instractor?.name}
 
                                 </h2>
-                              
-                              
+
+
                                 <div className=" md:flex justify-evenly ">
 
                                     <p className='font-semibold font-mono'>Email :  {instractor?.email}</p>
 
                                 </div>
 
-                                
+
                             </div>
                         </div>
 
@@ -60,4 +60,4 @@ const Instractore = () => {
     );
 };
 
-export default Instractore;
+export default PopulerInstractor;

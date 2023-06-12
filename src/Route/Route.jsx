@@ -23,6 +23,11 @@ import PaymentHistorey from '../Pages/Dashbord/Student/PaymentHistorey/PaymentHi
 import TotalEnroll from '../Pages/Dashbord/Instractor/TotalEnroll/TotalEnroll';
 import Update from '../Pages/Dashbord/Instractor/Myclass/Update';
 import Instractore from '../Pages/Instractore/Instractore';
+import Feedback from '../Pages/Dashbord/ManageClasses/Feedback';
+
+
+
+
 
 
 const router = createBrowserRouter([
@@ -45,7 +50,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/classes',
-                element: <Classes />
+                element:<Classes />
             },
             {
                 path: '/instractor',
@@ -82,7 +87,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/updateclass/:id',
                 element: <InstractorRoute><Update /></InstractorRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/updateclass/${params.id}`)
+                loader: ({ params }) => fetch(`https://assainment-sarver.vercel.app/updateclass/${params.id}`)
             },
             {
                 path: '/dashbord/manageclass',
@@ -95,7 +100,12 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/payment/:id',
                 element: <PrivateRoute> <Payment /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/selactedclass/${params.id}`)
+                loader: ({ params }) => fetch(`https://assainment-sarver.vercel.app/selactedclass/${params.id}`)
+            },
+            {
+                path: '/dashbord/feedback/:id',
+                element: <PrivateRoute> <Feedback /></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/feedback/${params.id}`)
             },
             {
                 path: '/dashbord/myenroll',

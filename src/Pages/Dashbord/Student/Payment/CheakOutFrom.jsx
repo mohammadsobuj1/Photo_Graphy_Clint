@@ -97,7 +97,7 @@ const CheakOutFrom = ({ price, data }) => {
                     console.log(res.data);
                     if (res.data.insertedId) {
 
-                        fetch(`http://localhost:5000/selactedclass/${data?._id}`, {
+                        fetch(`https://assainment-sarver.vercel.app/selactedclass/${data?._id}`, {
                             method: 'DELETE'
                         })
                             .then(res => res.json())

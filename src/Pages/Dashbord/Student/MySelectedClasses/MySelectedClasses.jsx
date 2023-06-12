@@ -18,7 +18,7 @@ const MySelectedClasses = () => {
     const { refetch, data: cartClasses = [] } = useQuery({
         queryKey: ['selactedclass', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/selactedclass?email=${user?.email}`)
+            const res = await fetch(`https://assainment-sarver.vercel.app/selactedclass?email=${user?.email}`)
             return res.json();
         },
     })
@@ -34,7 +34,7 @@ const MySelectedClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/selactedclass/${cartClass?._id}`, {
+                fetch(`https://assainment-sarver.vercel.app/selactedclass/${cartClass?._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

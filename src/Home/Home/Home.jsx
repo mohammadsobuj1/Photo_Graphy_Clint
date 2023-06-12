@@ -1,12 +1,16 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import TopClass from '../TopClass/TopClass';
+import PopulerClasses from '../PopulerClasses/PopulerClasses';
+import Exhibition from '../Exhibition/Exhibition';
+import PopulerInstractor from '../PopulerInstractor/PopulerInstractor';
 
 const Home = () => {
     return (
-        <div>
+        <div >
             <Banner />
-            <TopClass />
+            <PopulerClasses />
+           <PopulerInstractor/>
+            <Exhibition/>
         </div>
     );
 };

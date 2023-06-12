@@ -7,7 +7,7 @@ const TotalEnroll = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/enrollclass?email=${user?.email}`)
+        fetch(`https://assainment-sarver.vercel.app/enrollclass?email=${user?.email}`)
             .then(res => res.json())
             .then(data => console.log(data))
     }, [])

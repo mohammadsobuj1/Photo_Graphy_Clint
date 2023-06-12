@@ -5,12 +5,13 @@ import Swal from 'sweetalert2';
 import HeaderSection from '../../../Components/AuthProvider/HeaderSection/HeaderSection';
 import Title from '../../../Components/Title/Title';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
 
 const ManageClasses = () => {
-const [feedback, setFeedback]=useState('')
+    const [feedback, setFeedback] = useState('')
     const [axiosSecure] = useAxiosSecure()
     const { data: cless = [], refetch, } = useQuery(['cless'], async () => {
         const res = await axiosSecure.get(`/adminclass`)
@@ -21,7 +22,7 @@ const [feedback, setFeedback]=useState('')
 
 
     const AproveHandaler = (clas) => {
-        fetch(`http://localhost:5000/class/aprove/${clas?._id}`, {
+        fetch(`https://assainment-sarver.vercel.app/class/aprove/${clas?._id}`, {
             method: 'PATCH',
 
 
@@ -47,7 +48,7 @@ const [feedback, setFeedback]=useState('')
     }
 
     const DenayHandaler = (clas) => {
-        fetch(`http://localhost:5000/class/deny/${clas?._id}`, {
+        fetch(`https://assainment-sarver.vercel.app/class/deny/${clas?._id}`, {
             method: 'PATCH',
 
 
@@ -72,16 +73,40 @@ const [feedback, setFeedback]=useState('')
 
 
     const feedBackHandler = (clas) => {
-       
+
+        // const feed = { feedback, id: clas?._id }
+console.log(clas)
 
 
-        
+        // fetch(`http://localhost:5000/feedback`, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         "content-type": "application/json"
+        //     },
+        //     body: JSON.stringify(feed)
+        // })
+
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         return console.log(data)
+        //         if (data.modifiedCount > 0) {
+                  
+
+        //         }
+        //     })
+     
     }
+
+
+
+
+
     const handleSubmit = e => {
         e.preventDefault()
-      
+
         const feedback = e.target.feedback.value
         setFeedback(feedback)
+
     }
 
 
@@ -146,36 +171,11 @@ const [feedback, setFeedback]=useState('')
 
                                 </td>
 
-                                <a href="#my_modal_8" className="btn btn-sm   border-none bg-gradient-to-r from-violet-500 mt-8 to-violet-400 font-sans text-white">Feed Back</a>
+                                <Link to={`/dashbord/feedback/${clas?._id}`}><button  className="btn btn-sm   border-none bg-gradient-to-r from-violet-500 mt-8 to-violet-400 font-sans text-white" > Feed Back</button> </Link>
                                 <td>
 
                                 </td>
-                                <td>
-                                    <>
-
-
-
-
-                                        <div className="modal" id="my_modal_8">
-                                            <div className="modal-box  border-4 border-violet-400 bg-gray-400">
-                                                <form onSubmit={handleSubmit}>
-
-                                                    <input name='feedback' type="text" placeholder="Type here" className="input  input-bordered  w-full py-10" />
-
-                                                    <div className="modal-action">
-                                                        <input type="submit" onClick={() => feedBackHandler(clas)}   className="btn btn-sm   border-none bg-gradient-to-r from-violet-500 mt-8 to-violet-400 w-[50%] font-sans text-white" value="SEND" />
-
-                                                        <a href="#"  className="btn btn-sm   border-none bg-gradient-to-r from-red-500 mt-8 to-red-400 font-sans text-white">Close</a>
-
-                                                    </div>
-                                                </form>
-
-                                               
-
-                                            </div>
-                                        </div>
-                                    </>
-                                </td>
+                               
 
 
 
