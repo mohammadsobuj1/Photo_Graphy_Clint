@@ -25,7 +25,7 @@ const Bannar = () => {
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
 
-                                <h1 className="text-3xl md:text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Hero's univers</p></h1>
+                                <h1 className="text-3xl md:text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Pexl_Pro</p></h1>
                                 <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                                 {btnGroup}
                             </div>
@@ -51,7 +51,7 @@ const Bannar = () => {
                         <div className="hero-overlay bg-opacity-35"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Hero's univers</p></h1>
+                                <h1 className="text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Pexl_Pro</p></h1>
                                 <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                                 {btnGroup}
                             </div>
@@ -63,7 +63,7 @@ const Bannar = () => {
                         <div className="hero-overlay bg-opacity-35"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Hero's univers</p></h1>
+                                <h1 className="text-5xl font-bold uppercase text-white font-ital">wlcome Our <p className="text-orange-400  ">Pexl_Pro</p></h1>
                                 <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                                 {btnGroup}
                             </div>

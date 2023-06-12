@@ -21,7 +21,8 @@
 
 * Sarver :mongoDb
 * other : tanstark Qurey , axsiox, React Hook forms
-* Live Link : 
+* Live Link : https://assainment-12-38248.web.app
 * client Repo : https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-mohammadsobuj1
 * sarver Repo : https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-mohammadsobuj1
- 
+ * Admin email : sobuj@gmail.com 
+ * password : alisobuj124AA
