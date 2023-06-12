@@ -16,7 +16,7 @@ const MyEnroll = () => {
 
 
   
-    return (
+    return(
         <div className='w-[90%] mx-auto h-[90%]'>
             <Title title={'My Enroll Class'}/>
             <HeaderSection subheader={'all enroll'} header={'my enrollment classes'} />
