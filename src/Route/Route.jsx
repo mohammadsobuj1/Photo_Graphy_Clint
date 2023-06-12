@@ -24,6 +24,7 @@ import TotalEnroll from '../Pages/Dashbord/Instractor/TotalEnroll/TotalEnroll';
 import Update from '../Pages/Dashbord/Instractor/Myclass/Update';
 import Instractore from '../Pages/Instractore/Instractore';
 import Feedback from '../Pages/Dashbord/ManageClasses/Feedback';
+import Error from '../Components/Error/Error';
 
 
 
@@ -118,6 +119,12 @@ const router = createBrowserRouter([
                
             },
         ]
+    },
+    {
+        path:"*",
+        element:<Error/>
     }
+
+
 ]);
 export default router;
