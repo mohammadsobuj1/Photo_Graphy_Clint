@@ -106,7 +106,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/feedback/:id',
                 element: <PrivateRoute> <Feedback /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/feedback/${params.id}`)
+                loader: ({ params }) => fetch(`https://assainment-sarver.vercel.app/feedback/${params.id}`)
             },
             {
                 path: '/dashbord/myenroll',

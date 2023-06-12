@@ -78,7 +78,7 @@ const ManageClasses = () => {
 console.log(clas)
 
 
-        // fetch(`http://localhost:5000/feedback`, {
+        // fetch(`https://assainment-sarver.vercel.appfeedback`, {
         //     method: 'PATCH',
         //     headers: {
         //         "content-type": "application/json"
