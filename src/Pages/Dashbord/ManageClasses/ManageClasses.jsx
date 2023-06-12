@@ -75,7 +75,7 @@ const ManageClasses = () => {
     const feedBackHandler = (clas) => {
 
         // const feed = { feedback, id: clas?._id }
-console.log(clas)
+
 
 
         // fetch(`https://assainment-sarver.vercel.appfeedback`, {

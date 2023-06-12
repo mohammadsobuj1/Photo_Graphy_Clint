@@ -61,6 +61,93 @@ const Registration = () => {
 
 
 
+    // const submitHandelar = (event) => {
+    //     event.preventDefault()
+    //     setError("")
+    //     const form = event.target;
+    //     const name = form.name.value;
+    //     const photo = form.photo.value;
+    //     const email = form.email.value;
+    //     const password = form.password.value;
+    //     if (password.length < 6) {
+
+    //         toast.error(" Password must be More Than 6 Charecter")
+    //     }
+
+    //     if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+    //         setError("Add Minimum two Uppercase letter")
+    //         return
+    //     }
+    //     if (name.length < 0) {
+    //         setError("plas")
+    //     }
+
+    //     createUser(email, password)
+    //         .then(result => {
+
+
+
+    //             changeName(result.user, name, photo)
+    //                 .then(() => {
+
+    //                     const userData = { name, email, photo }
+
+    //                     fetch(`https://assainment-sarver.vercel.app/users`, {
+    //                         method: 'POST',
+    //                         headers: {
+    //                             'content-type': 'application/json'
+    //                         },
+    //                         body: JSON.stringify(userData)
+    //                     })
+    //                         .then(res => res.json())
+    //                         .then(data => {
+    //                             if (data.insertedId) {
+    //                                 form.reset()
+    //                                 navigate('/')
+
+    //                             }
+
+    //                         })
+
+    //                     setReload(new Date().getTime())
+    //                 })
+    //                 .catch(error => {
+    //                     setError(error.message)
+    //                 })
+
+    //         })
+    //         .catch(error => {
+    //             setError(error.message)
+    //         })
+
+
+    // }
+
+
+
+    const googleHandaler = () => {
+        googlelogIn()
+            .then(result => {
+
+                const userData = { name: result.user.displayName, email: result.user.email, photo: result.user.photoURL }
+
+                fetch(`https://assainment-sarver.vercel.app/users`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                    .then(res => res.json())
+                    .then(() =>
+
+                        navigate('/')
+
+                    )
+            })
+    }
+
+
 
 
     return (
